@@ -1,1 +1,3 @@
-PrimeNG.TableFilter.Example
+# PrimeNG.TableFilter.Example
+
+Example project for PrimeNG.TableFilter
