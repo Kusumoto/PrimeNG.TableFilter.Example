@@ -20,7 +20,6 @@ namespace PrimeNG.TableFilter.Example.Controllers
 
         public IActionResult Index([FromBody] TableFilterModel tableFilterPayload)
         {
-            var totalRecord = 0;
             var result = _webBoardRepository
                 .Gets()
                 .Select(o => new WebBoardViewModel
@@ -30,7 +29,7 @@ namespace PrimeNG.TableFilter.Example.Controllers
                     Email = o.Email,
                     Name = o.Name
                 })
-                .PrimengTableFilter(tableFilterPayload, ref totalRecord);
+                .PrimengTableFilter(tableFilterPayload, out var totalRecord);
             return Ok(new GenericResponseViewModel<List<WebBoardViewModel>>(totalRecord, result.ToList()));
         }
     }
